@@ -102,14 +102,14 @@ impl EguiPipelineKey {
     /// Constructs a pipeline key from a window.
     pub fn from_extracted_window(window: &ExtractedWindow) -> Option<Self> {
         Some(Self {
-            texture_format: window.swap_chain_texture_format?.add_srgb_suffix(),
+            texture_format: window.swap_chain_texture_format?,
         })
     }
 
     /// Constructs a pipeline key from a gpu image.
     pub fn from_gpu_image(image: &GpuImage) -> Self {
         EguiPipelineKey {
-            texture_format: image.texture_format.add_srgb_suffix(),
+            texture_format: image.texture_format,
         }
     }
 }
